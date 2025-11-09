@@ -172,5 +172,61 @@ Features: Handle payment transactions related to bookings.
 Endpoints: /reviews/, /reviews/{review_id}/
 Features: Post and manage reviews for properties.
 7. Database Optimizations
-Indexing: Implement indexes for fast retrieval of frequently accessed data.
+
+API Security
+
+Key Security Measures for the Airbnb Clone Backend
+
+The backend will include several key security measures to ensure the safety of user data, transactions, and system integrity.
+
+1. Authentication (Login Security):
+Authentication ensures that only legitimate users can access the platform. This will be implemented using JWT (JSON Web Tokens) or OAuth 2.0, where users log in with their credentials and receive a secure token for subsequent requests. Passwords will be hashed using bcrypt or Argon2 before being stored in the database, making it impossible to recover the original passwords even if the database is compromised.
+
+2. Authorization (Access Control):
+Authorization defines what each user is allowed to do in the system. A Role-Based Access Control (RBAC) system will be used — for example, hosts can create and manage property listings, while guests can only book properties and leave reviews. This prevents unauthorized actions and protects data integrity.
+
+3. Input Validation and Sanitization:
+All user inputs will be validated on both the frontend and backend to prevent common attacks like SQL Injection or Cross-Site Scripting (XSS). Using parameterized SQL queries and server-side validation helps ensure that only clean and expected data is processed.
+
+4. HTTPS and SSL Encryption:
+All communication between the client and server will occur over HTTPS, secured by an SSL certificate. This prevents sensitive information, such as login credentials or payment details, from being intercepted during transmission.
+
+5. Rate Limiting and Throttling:
+To protect the server from brute-force attacks or API abuse, rate limiting will be implemented. This means limiting the number of requests a single user or IP address can make within a certain time period. Tools like express-rate-limit (for Node.js) or built-in ASP.NET Core middleware can help enforce this.
+
+6. Data Encryption (At Rest):
+Sensitive data stored in the database, such as payment details or session tokens, will be encrypted using AES-256 or a similar algorithm. This ensures that even if the database is compromised, attackers cannot read the data.
+
+7. Secure Payment Processing:
+All payment handling will be done through trusted and PCI-DSS-compliant gateways like Stripe or PayPal. The application will never store raw credit card data. Instead, it will securely communicate with the payment provider through encrypted APIs.
+
+8. Session Management:
+Proper session management will prevent unauthorized access. JWTs will have short expiration times and refresh tokens will be used for re-authentication. When users log out, their session tokens will be invalidated immediately to prevent reuse.
+
+9. Audit Logging and Monitoring:
+All critical operations such as user logins, property changes, and payments will be logged. These logs will be monitored regularly to detect suspicious behavior, helping to identify hacking attempts or internal misuse.
+
+10. Backup and Disaster Recovery:
+Regular encrypted backups of the database and important files will be made to secure cloud storage. This ensures that in case of system failure, ransomware, or data corruption, recovery is quick and data loss is minimized.
+
+  
+  Why Security Is Crucial for Each Area
+
+User Management:
+Protecting user accounts and personal data is essential. Authentication and password hashing prevent unauthorized access and data theft.
+
+Property Management:
+Only the property owner (host) should be able to edit or delete their listings. Proper authorization ensures no one else can manipulate that data.
+
+Booking System:
+Bookings contain private information about users’ stays and payment details. Secure endpoints and validation prevent fake bookings or data exposure.
+
+Payment Processing:
+Handling money requires the highest level of security. Encrypting data and using compliant payment gateways protects users from fraud and ensures legal compliance.
+
+Review System:
+Reviews affect the credibility of both guests and hosts. Authentication and input validation prevent fake reviews, spam, and malicious content.
+
+Data Storage and Optimization:
+Securing data at rest with encryption and enforcing database access controls helps protect against insider threats or unauthorized database access.Indexing: Implement indexes for fast retrieval of frequently accessed data.
 Caching: Use caching strategies to reduce database load and improve performance.
