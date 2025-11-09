@@ -230,3 +230,35 @@ Reviews affect the credibility of both guests and hosts. Authentication and inpu
 Data Storage and Optimization:
 Securing data at rest with encryption and enforcing database access controls helps protect against insider threats or unauthorized database access.Indexing: Implement indexes for fast retrieval of frequently accessed data.
 Caching: Use caching strategies to reduce database load and improve performance.
+
+CI/CD Pipeline
+
+CI/CD Pipelines and Their Importance
+
+CI/CD (Continuous Integration and Continuous Deployment) pipelines are automated processes that help developers build, test, and deploy their code more efficiently.
+
+In Continuous Integration (CI), every time a developer pushes new code to the repository (for example, on GitHub), the system automatically checks the code, runs tests, and ensures that nothing is broken. This keeps the codebase stable and prevents integration problems between team members’ work.
+
+In Continuous Deployment (CD), once the code passes all tests, it is automatically deployed to a staging or production environment (for example, a web server or cloud service). This allows new features, bug fixes, or updates to go live quickly and reliably without manual intervention.
+
+For the Airbnb Clone project, CI/CD pipelines are important because they:
+
+Ensure that new updates (such as bug fixes or feature additions) are tested and deployed safely.
+
+Reduce human error in the deployment process.
+
+Allow faster delivery of new features to users.
+
+Provide consistent and repeatable builds, making debugging and maintenance easier.
+
+  Tools Used in CI/CD
+
+Some common tools that can be used for this project include:
+
+GitHub Actions: Automates testing and deployment directly from your GitHub repository.
+
+Docker: Packages your backend, database, and frontend into lightweight containers for consistent deployment across environments.
+
+Jenkins: A powerful open-source automation server for managing build and deployment pipelines.
+
+Azure DevOps Pipelines / GitLab CI: Other popular CI/CD platforms that integrate with cloud environments.
